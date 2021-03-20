@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'comment',
     'category',
     'project',
+    'tag',
+    'rate',
+    'donation',
 ]
 
 MIDDLEWARE = [
@@ -124,9 +127,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     #'/var/www/static/',
 ]
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
+
+# Auth
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+)
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
