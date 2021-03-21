@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'tag',
     'rate',
     'donation',
+    'allauth',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
