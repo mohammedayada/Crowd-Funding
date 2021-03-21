@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        #div1 {
+            background-image: url(pexels-francesco-ungaro-673648.jpg);
+            height: 450px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div class="container-fluid">
+
+        <div class="row " id="div1" data-aos="fade-right">
+            <div class="col-sm-1 col-lg-1"></div>
+            <div class="col-sm-11 col-lg-5 pl-sm-3">
+                <img src="pexels-luis-quintero-1713953.jpg" style="margin-top: 6rem;" class="img-fluid rounded-circle"
+                    alt="bgImage" width="60%" id="personImg">
+            </div>
+            <div class="col-sm-11 col-lg-5 align-self-center">
+                <div class="row py-3">
+                    <h1 class="font-weight-bolder">Name </h1>
+                </div>
+                <div class="row  py-3">
+                    <span>
+                        <h2>Informations</h2>
+                    </span>
+                </div>
+                <div class="row  py-3">
+                    <span id="hoverLinkSpan" class="animate_fadeInDownBig animate_delay-2 2s">
+
+                        <button type="button" class="btn  btn-primary" data-toggle="modal" data-target="#loginForm">
+                            Edit your profile
+                        </button>
+
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-1 col-lg-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-2 ">
+                <!-- <div>
+                    <div class="card bg-light" style=" float:right; width: 15rem;">
+                        <div class="modal-title">
+                            <img src="pexels-luis-quintero-1713953.jpg"
+                                class="card-img-top img-responsive rounded-circle">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Name</h5>
+                            <p class="card-text">profile Informations</p>
+                            <button type="button" class="btn btn-primary profile-button" data-toggle="collapse"
+                                data-target="#collapseDiv1">Edit</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-muted" style="margin-bottom:0">
+                        <h1>name</h1>
+                        <div>
+
+                            <a href="#">name</a>
+
+                            <div><a href="#">Information</a></div>
+                        </div>
+                    </div>
+
+
+
+                </div> -->
+
+                <div class=" card bg-white navbar-light">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">Informations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                aria-controls="contact" aria-selected="false">Donations</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "></div>
+
+
+
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-2 ">
+                                    <div class="card-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">name</li>
+                                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                                            <li class="list-group-item">Morbi leo risus</li>
+                                            <li class="list-group-item">Porta ac consectetur ac</li>
+                                            <li class="list-group-item">Vestibulum at eros</li>
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "> </div>
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "></div>
+
+
+
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-2 ">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Title</th>
+                                                <th scope="col">Descreption</th>
+                                                <th scope="col">catogry</th>
+                                                <th scope="col">Target</th>
+                                                <th scope="col">Reached-Donations</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "> </div>
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "></div>
+
+
+
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-2 ">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">The value of the donation</th>
+                                                <th scope="col">Project</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "> </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-2 ">
+
+                <!-- <div class="row" id="collapseDiv1">
+
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                                class="rounded-circle mt-5" src="pexels-luis-quintero-1713953.jpg" width="200"><span
+                                class="font-weight-bold">Name</span><span
+                                class="text-black-50">mail</span><span>Country</span></div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="p-3 py-5">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                <h6 class="text-right">Edit Profile</h6>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="first name">
+                                </div>
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="last name">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+
+                                <div class="col-md-6"><input type="text" class="form-control"
+                                        placeholder="Phone number"></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="address">
+                                </div>
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Country">
+                                </div>
+                            </div>
+
+                            <div class="mt-5 text-right"><button class="btn btn-primary profile-button"
+                                    type="button">Save
+                                    Profile</button></div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="modal fade" id="loginForm">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+
+                            <div class="row" id="collapseDiv1">
+
+
+                                <!-- <div class="col-md-12">
+                                    <div class="d-flex flex-column align-items-center text-center p-5 py-7"><img
+                                            class="rounded-circle img-fluid mt-5" src="pexels-luis-quintero-1713953.jpg" alt="Responsive image"
+                                            width="250"><span class="font-weight-bold">Name</span><span
+                                            class="text-black-50">mail</span><span>Country</span></div>
+                                </div> -->
+
+                                <div class="col-lg-12 order-lg-0 text-center">
+                                    <img class="rounded-circle img-fluid mt-5" src="pexels-luis-quintero-1713953.jpg" alt="Responsive image"
+                                    width="250" />
+                                    <h6 class="my-4">Upload a new photo</h6>
+                                    <div class="input-group px-xl-4">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-secondary"><i class="fa fa-upload"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                            <h6 class="text-right">Edit Profile</h6>
+                                        </div>
+                                        <div class="row mt-5">
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="first name">
+                                            </div>
+                                            
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="last name">
+                                            </div>
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="Phone number"></div>
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="email" disabled></div>
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="password"></div>
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="address"></div>
+                                        </div>
+                                        <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Save
+                                            Profile</button>
+                                            <button type="button" class="btn btn-outline-secondary profile-button " data-dismiss="modal">Close</button>
+                                           </div>
+                                           
+                                            
+                                    </div>
+                                    
+                                </div>
+                               
+                            </div>
+                            
+
+                        </div>
+
+
+                       
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+
+
+    </div>
+
+
+    </div>
+
+</body>
+
+</html>
