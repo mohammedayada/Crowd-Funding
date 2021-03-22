@@ -94,3 +94,7 @@ def show_profile(request,pk):
                                                              'projects': projects})
     else:
         return render(request, 'home.html', {'msg': "User not found"})
+
+
+
+#edit profile

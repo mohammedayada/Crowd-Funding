@@ -145,7 +145,7 @@
                                                 {%for project in projects%}
                                                 <tr>
                                                     <th scope="row">{{forloop.counter}}</th>
-                                                    <td>{{project.title}}</td>
+                                                    <td><a href="{% url 'project:show_project' project.pk%}">{{project.title}}</a></td>
                                                     <td>{{project.details}}</td>
                                                     <td>{{project.category}}</td>
                                                     <td>{{project.target}}</td>
@@ -240,7 +240,7 @@
 
 
                                 <div class="col-lg-12 order-lg-0 text-center">
-                                    <img class="rounded-circle img-fluid mt-5" src="pexels-luis-quintero-1713953.jpg"
+                                    <img class="rounded-circle img-fluid mt-5" src="{{profile.img.url}}"
                                         alt="Responsive image" width="250" />
                                     <h6 class="my-4">Upload a new photo</h6>
                                     <div class="input-group px-xl-4">
@@ -262,16 +262,16 @@
                                         </div>
                                         <div class="row mt-5">
                                             <div class="col-md-6"><input type="text" class="form-control"
-                                                    placeholder="first name">
+                                            value="{{profile.user.first_name}}" placeholder="first name">
                                             </div>
 
                                             <div class="col-md-6"><input type="text" class="form-control"
-                                                    placeholder="last name">
+                                            value="{{profile.user.last_name}}"   placeholder="last name">
                                             </div>
                                             <div class="col-md-6"><input type="text" class="form-control"
-                                                    placeholder="Phone number"></div>
+                                            value="{{profile.phone}}"      placeholder="Phone number"></div>
                                             <div class="col-md-6"><input type="text" class="form-control"
-                                                    placeholder="email" disabled></div>
+                                            value="{{profile.user.email}}"        placeholder="email" disabled></div>
                                             <div class="col-md-6"><input type="text" class="form-control"
                                                     placeholder="password"></div>
                                             <div class="col-md-6"><input type="text" class="form-control"

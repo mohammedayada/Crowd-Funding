@@ -162,7 +162,7 @@
 
                                         <dt class="col-sm-3 py-2 text-drak">Owner</dt>
                                         <dd class="col-sm-9 py-3">
-                                            <a href="#" class="text-info">{{project.user.username}}</a>
+                                            <a href="{% url 'user_profile:show_profile' project.user.pk %}" class="text-info">{{project.user.username}}</a>
                                         </dd>
 
                                         <dd class="col-sm-6 py-2">

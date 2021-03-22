@@ -5,6 +5,7 @@ from .forms import Project_form, Category
 from tag.models import Tag, proiect_tag
 from .models import Project, Project_imgs
 from comment.models import Comment
+from user_profile.models import user_profile
 # Create your views here.
 
 
@@ -64,6 +65,7 @@ def show_project(request,pk):
         return render(request, 'project/show_project.html', {'project': project,
                                                              'tags': project_tags,
                                                              'comments': comment,
-                                                             'imgs': imgs})
+                                                             'imgs': imgs,
+                                                             })
     else:
         return render(request, 'home.html', {'msg': "Project not found"})
