@@ -1,19 +1,337 @@
 {% extends '../base.html' %}
-{%block title%}Profile{% endblock title%}
+{% load static %}
+{% block head %}
+<style>
+        #div1 {
+            background-image:  url({% static 'imgs/pexels-francesco-ungaro-673648.jpg' %});
+            height: 420px;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+</style>
+{% endblock head %}
+{%block title%}{{profile.user.username}}{% endblock title%}
 {% block contain %}
 {% if msg %}
 <h4>{{msg}}</h4>
 {% endif %}
-<div class="row">
-    first name: {{profile.user.first_name}}<br>
-    last name: {{profile.user.last_name}}<br>
-    username: {{profile.user.username}}<br>
-    phone: {{profile.phone}}<br>
-    birth date: {{profile.birth_date}}<br>
-    facebook link: {{profile.facebook_link}}<br>
-    country: {{profile.country}}<br>
-
-
 </div>
+<div class="container-fluid">
+
+        <div class="row " id="div1" data-aos="fade-right">
+            <div class="col-sm-1 col-lg-1 col-xl-1 col-md-1"></div>
+            <div class="col-sm-5 col-lg-5 col-md-5 col-xl-5">
+                <img src="{{profile.img.url}}" style="margin-top: 80px;" class="img-fluid rounded-circle"
+                    alt="bgImage" width="60%" id="personImg">
+            </div>
+
+
+            <div class="col-sm-1 col-lg-1 col-xl-1 col-md-1"></div>
+            <div class="row">
+                <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 align-self-center">
+                    <span></span>
+                    <div>
+
+                        <h3 class="font-weight-bolder">Name </h3>
+                        <h4>Informations</h4>
+                    </div>
+
+                    <div>
+                        <button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#loginForm">
+                            Edit your profile
+                        </button>
+                   </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
+
+
+                <div class=" card bg-white navbar-light">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">Informations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                aria-controls="contact" aria-selected="false">Donations</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "></div>
+
+
+
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 ">
+                                    <div class="card-body">
+                                        <table class="table text-center table-bordered">
+                                            <tbody>
+                                            <tr>
+                                                <th class="table-dark " scope="col">Full Name</th>
+                                                <th scope="col">{{profile.user.first_name}}
+                                                    {{profile.user.last_name}}</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="table-dark " scope="col">User Name</th>
+                                                <th scope="col">{{profile.user.username}}</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="table-dark " scope="col">Telephone number</th>
+                                                <th scope="col">{{profile.phone}}</th>
+                                            </tr>
+                                            {%if profile.birth_date %}
+                                            <tr>
+                                                <th class="table-dark " scope="col">Birth date</th>
+                                                <th scope="col">{{profile.birth_date}}
+                                                </th>
+                                            </tr>
+                                            {% endif %}
+                                            {%if profile.facebook_link %}
+                                            <tr>
+                                                <th class="table-dark " scope="col">Facebook link</th>
+                                                <th scope="col">{{profile.facebook_link}}</th>
+                                            </tr>
+                                            {% endif %}
+                                            {%if profile.country %}
+                                            <tr>
+                                                <th class="table-dark " scope="col">Country</th>
+                                                <th scope="col">{{profile.country}}</th>
+                                            </tr>
+                                            {% endif %}
+                                            </tbody>
+                                        </table>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "> </div>
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "></div>
+
+
+
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 ">
+                                    <div class="table-responsive">
+
+                                        <table class="table table-hover table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Title</th>
+                                                    <th scope="col">Descreption</th>
+                                                    <th scope="col">catogry</th>
+                                                    <th scope="col">Target</th>
+                                                    <th scope="col">Reached-Donations</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "> </div>
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "></div>
+
+
+
+                                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 ">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered  ">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">The value of the donation</th>
+                                                    <th scope="col">Project</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 "> </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-2 ">
+
+
+                <div class="modal fade" id="loginForm">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+
+                            <div class="row" id="collapseDiv1">
+
+
+
+                                <div class="col-lg-12 order-lg-0 text-center">
+                                    <img class="rounded-circle img-fluid mt-5" src="pexels-luis-quintero-1713953.jpg"
+                                        alt="Responsive image" width="250" />
+                                    <h6 class="my-4">Upload a new photo</h6>
+                                    <div class="input-group px-xl-4">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                            <label class="custom-file-label" for="inputGroupFile02"
+                                                aria-describedby="inputGroupFileAddon02">Choose file</label>
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-secondary"><i class="fa fa-upload"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                            <h6 class="text-right">Edit Profile</h6>
+                                        </div>
+                                        <div class="row mt-5">
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="first name">
+                                            </div>
+
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="last name">
+                                            </div>
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="Phone number"></div>
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="email" disabled></div>
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="password"></div>
+                                            <div class="col-md-6"><input type="text" class="form-control"
+                                                    placeholder="address"></div>
+                                        </div>
+                                        <div class="mt-5 text-right"><button class="btn btn-primary profile-button"
+                                                type="button">Save
+                                                Profile</button>
+                                            <button type="button" class="btn btn-outline-secondary profile-button "
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
 
 {% endblock contain %}

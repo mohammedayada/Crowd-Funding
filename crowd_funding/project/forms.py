@@ -1,58 +1,63 @@
 from django import forms
+from category.models import Category
 import datetime
 class Project_form(forms.Form):
     title = forms.CharField(label=False, max_length=50,
                             widget=forms.TextInput(attrs={'class': 'form-control',
                                                           'placeholder': 'Enter a title for your Project',
+                                                          'name': "title"
                                                           }))
+
+
+
     target = forms.IntegerField(label=False,
                                 widget=forms.TextInput(attrs={'class': 'form-control',
-                                                               'placeholder': 'First Name',
-                                                               }))
-    last_name = forms.CharField(label=False,
-                                widget=forms.TextInput(attrs={'class': 'form-control',
-                                                              'placeholder': 'Last Name',
+                                                              'min': 5000,
+                                                              'placeholder': "Enter the amount you want to reach",
+                                                              'type': "number",
+                                                              'name': "target",
                                                               }))
-    email = forms.EmailField(label=False,
-                             widget=forms.TextInput(attrs={'class': 'form-control',
-                                                           'placeholder': 'Email',
-                                                           }))
-    password = forms.CharField(label=False, max_length=50,
-                               widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                 'placeholder': 'Password',
-                                                                 }))
-    confirm_password = forms.CharField(label=False, max_length=50,
-                                       widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                         'placeholder': 'Confirm password',
-                                                                         }))
-    phone = forms.CharField(label=False, max_length=11,
-                            widget=forms.TextInput(attrs={'class': 'form-control',
-                                                          'placeholder': 'Phone',
-                                                          'pattern': '^01[0-2]\d{1,8}$',
-                                                          }))
-    img = forms.ImageField(label='Enter Photo(.PNG , .JPG)',
-                           widget=forms.FileInput(attrs={'class': 'form-control',
-                                                         }))
 
-    birth_date = forms.DateField(label='Birth date', required=False,
+    MYQUERY = Category.objects.values_list('pk', 'name')
+    category = forms.CharField(label=False,
+                               widget=forms.Select(attrs={'class': 'form-control',
+                                                          'name': "category",
+                                                          },
+                                                   choices=(*MYQUERY,)))
+
+    start_date = forms.DateField(label=False,
+                                 required=True,
+                                 initial=datetime.datetime.now(),
                                  widget=forms.DateInput(attrs={'class': 'form-control datetimepicker-input',
                                                                'type': 'date',
+                                                               'name': 'start_date',
                                                                }), )
-    facebook_link = forms.URLField(label=False, required=False, max_length=200,
-                                   widget=forms.URLInput(attrs={'class': 'form-control',
-                                                                'placeholder': 'Facebook link',
-                                                                }))
+    end_date = forms.DateField(label=False,
+                               required=True,
+                               initial=datetime.datetime.now(),
+                               widget=forms.DateInput(attrs={'class': 'form-control datetimepicker-input',
+                                                             'type': 'date',
+                                                             'name': 'end_date',
+                                                             }), )
 
-    country = forms.CharField(label=False, required=False, max_length=20,
-                              widget=forms.TextInput(attrs={'class': 'form-control',
-                                                            'placeholder': 'Country',
-                                                            }))
+    """details = forms.CharField(label=False,
+                              widget=forms.Textarea(attrs={'rows': 3,
+                                                           'cols':50,
+                                                           'placeholder': "Mention some details of your project",
+                                                           'name': 'details',
+                                                           }))
+    tags = forms.CharField(label=False,
+                           widget=forms.Textarea(attrs={'rows': 3,
+                                                        'placeholder': "Tage1,Tage2 (Nots: without spaces)",
+                                                        'name': 'tags',
+                                                        'id': "inputDetails"
+                                                        }))
 
-    def clean(self):
-        password1 = self.cleaned_data.get('password')
-        password2 = self.cleaned_data.get('confirm_password')
+    img = forms.ImageField(label=False,
+                           widget=forms.FileInput(attrs={'type': "file",
+                                                         'class': "custom-file-input",
+                                                         'id': "inputImages",
+                                                         'multiple': True
+                                                         }))
 
-        if password1 and password1 != password2:
-            raise forms.ValidationError("Passwords don't match")
-
-        return self.cleaned_data
+"""

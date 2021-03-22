@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .forms import Register_form
 from django.contrib.auth.models import User
 from .models import user_profile
@@ -26,14 +27,28 @@ def user_login(request):
         return render(request, 'home.html', context)
     # when request GET
     else:
-        return render(request, 'home.html')
+        return render(request, 'home.html', {'msg': "you are already login "})
+
+
+
+
+#logout function
+@login_required
+def user_logout(request):
+    logout(request)
+    return render(request, "home.html", {'msg': "logout successfully"})
+
+
+
 
 
 #register function
 def user_register(request):
+    if request.user.is_authenticated:
+        return render(request, "home.html", {'msg': "you can't register again when login"})
+
     if request.POST:
         data = request.POST
-        print(request.FILES['img'])
         form = Register_form(request.POST, request.FILES)
         if form.is_valid():
             # create new user
@@ -70,8 +85,9 @@ def user_register(request):
 
 #show profile
 def show_profile(request,pk):
-    profile = user_profile.objects.filter(pk=pk).first()
+    user = User.objects.filter(pk=pk).first()
+    profile = user_profile.objects.filter(user=user).first()
     if profile:
         return render(request, 'user_profile/profile.html', {'profile': profile})
     else:
-        return render(request, 'user_profile/profile.html')
+        return render(request, 'home.html', {'msg': "User not found"})

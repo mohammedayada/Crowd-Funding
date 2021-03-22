@@ -23,3 +23,7 @@ class Project(models.Model):
         return "user name: "+self.user.username+" "+self.title+" category: "+self.category.name
 
 
+class Project_imgs(models.Model):
+    project = models.ForeignKey(Project,
+                                 on_delete=models.CASCADE)
+    img = models.ImageField()
