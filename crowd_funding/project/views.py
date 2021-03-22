@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import Project_form, Category
 from tag.models import Tag, proiect_tag
 from .models import Project, Project_imgs
+from comment.models import Comment
 # Create your views here.
 
 
@@ -56,9 +57,10 @@ def add_project(request):
 def show_project(request,pk):
     project = Project.objects.filter(pk=pk).first()
     project_tags = proiect_tag.objects.filter(project=project)
-    print(project_tags)
+    comment = Comment.objects.filter(project=project)
     if project:
         return render(request, 'project/show_project.html', {'project': project,
-                                                             'tags': project_tags})
+                                                             'tags': project_tags,
+                                                             'comments': comment})
     else:
         return render(request, 'home.html', {'msg': "Project not found"})

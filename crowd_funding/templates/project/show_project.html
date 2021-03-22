@@ -326,25 +326,24 @@
 
                                            </div>
                                             <ul class="list-group list-group-flush row">
+                                                {% for comment in comments%}
 
                                                 <li class="list-group-item col-sm-12 py-4">
-                                                    <p class="col-sm-9 "> haned haned haned haned haned hanxved  haned haneed haned haned</p>
+                                                    <p class="col-sm-9 ">{{comment.text}}</p>
+                                                    {% if request.user == project.user%}
                                                     <div class="col-sm-3 align-self-center">
-                                                        <a href="#" class="p-2 bg-info text-light rounded"><small>Report</small></a>
+                                                        <a href="{% url 'comment:report_comment' comment.pk project.pk %}" class="p-2 bg-info text-light rounded"><small>Report</small></a>
                                                     </div>
+                                                    {% endif %}
                                                 </li>
-                                                <li class="list-group-item col-sm-12  py-4">
-                                                    <p class="col-sm-8 ">haned haned haned haned haned hvzcved  haned haneed haned haned </p>
-                                                    <div class="col-sm-4 align-self-center">
-                                                        <a href="#" class="p-2 bg-info text-light rounded"><small>Report</small></a>
-                                                    </div>
-                                                </li>
+                                                {% endfor%}
                                             </ul>
 
                                             <div class="row card-body ">
-                                                <form action="" method="POST" class="col">
+                                                <form action="{% url 'comment:add_comment' project.pk %}" method="POST" class="col">
+                                                    {%csrf_token %}
                                                     <div class="form-group">
-                                                        <input type="text" placeholder="Add comment"  class="form-control my-3"  >
+                                                        <input type="text" placeholder="Add comment" name="comment"  class="form-control my-3"  >
                                                     </div>
 
                                                     <button type="submit" class="btn btn-md btn-secondary ">comment <i class="fa fa-comment" aria-hidden="true"></i></button>
