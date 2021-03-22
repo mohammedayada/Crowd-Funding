@@ -57,10 +57,13 @@ def add_project(request):
 def show_project(request,pk):
     project = Project.objects.filter(pk=pk).first()
     project_tags = proiect_tag.objects.filter(project=project)
+    imgs = Project_imgs.objects.filter(project=project)
+    print(imgs)
     comment = Comment.objects.filter(project=project)
     if project:
         return render(request, 'project/show_project.html', {'project': project,
                                                              'tags': project_tags,
-                                                             'comments': comment})
+                                                             'comments': comment,
+                                                             'imgs': imgs})
     else:
         return render(request, 'home.html', {'msg': "Project not found"})

@@ -27,3 +27,5 @@ class Project_imgs(models.Model):
     project = models.ForeignKey(Project,
                                  on_delete=models.CASCADE)
     img = models.ImageField()
+    def __str__(self):
+        return "Images: "+self.img.url+" project: "+self.project.title

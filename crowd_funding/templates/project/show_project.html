@@ -1,5 +1,5 @@
 {% extends '../base.html' %}
-{% load static %}
+
 {%block title%}{{project.title}}{% endblock title%}
 {% block head %}
 <!-- <link rel="shortcut icon" href="images/hospital.svg " type="image/x-icon"> -->
@@ -107,25 +107,25 @@
 <div class="row mb-5" >
                 <div id="projectCarousel" style ="width: 100%;"class="carousel slide carousel-fade" data-ride="carousel" >
                     <ol class="carousel-indicators">
-                        <li data-target="#projectCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#projectCarousel" data-slide-to="1"></li>
-                        <li data-target="#projectCarousel" data-slide-to="2"></li>
+                        <li data-target="#projectCarousel" class="active" data-slide-to="0"></li>
+                        {% for ind in imgs%}
+
+                        <li data-target="#projectCarousel"  data-slide-to="{{forloop.counter}}"></li>
+                        {%endfor%}
+
+
                     </ol>
                     <div class="carousel-inner ">
                         <div class="carousel-item active" data-interval="2000">
-                        <img src="bg_imgs/bg1.jpg" class="d-block " alt="..." width="100%" height="400">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
-                        </div>
-                        </div>
-                        <div class="carousel-item" data-interval="2000">
-                        <img src="bg_imgs/bg2.jpg" class="d-block " alt="..."width="100%" height="400">
+                        <img src="/static/imgs/pexels-francesco-ungaro-673648.jpg" class="d-block " alt="..."width="100%" height="400">
 
                         </div>
-                        <div class="carousel-item" data-interval="2000">
-                        <img src="bg_imgs/bg3.jpg" class="d-block " alt="..." width="100%" height="400">
+                        {% for ind in imgs%}
+                        <div class="carousel-item " data-interval="2000">
+                        <img src="{{ind.img.url}}" class="d-block " alt="..."width="100%" height="400">
+
                         </div>
+                        {% endfor%}
                     </div>
                     <a class="carousel-control-prev " href="#projectCarousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon " aria-hidden="true"></span>
