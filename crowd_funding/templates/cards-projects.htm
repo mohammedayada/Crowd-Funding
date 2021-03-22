@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <style>
-        #www {
-            padding: 35px;
-            background-color: gray;
-            border: 1px solid #DDD;
-        }
+      #www {
+        padding: 35px;
+        background-color: gray;
+        border: 1px solid #ddd;
+      }
 
-        .container {
-            margin-right: auto;
-            margin-left: auto;
-        }
+      .container {
+        margin-right: auto;
+        margin-left: auto;
+      }
+      .form-control-borderless {
+        border: none;
+      }
+
+      .form-control-borderless:hover,
+      .form-control-borderless:active,
+      .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
     </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -22,198 +45,291 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
-<body>
-
-
-
-    <div class="container-fluid">
-
-        <div class="row">
-
-
-
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 ">
-
-                <div class="container">
-                    <div class="card border-dark" >
-                        <div class="card-header"><a href="#" ><img src="pexels-luis-quintero-1713953.jpg" class="card-img-top img-responsive "></a>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item"><h4> Title </h4></li>
-                                <li class="list-group-item"> this project help people ( descreption )this project help people ( descreption )
-                                    this project help people ( descreption )this project help people ( descreption )this project help people 
-                                    ( descreption )this project help people ( descreption )this project help people ( descreption )this project
-                                     help people ( descreption )this project help people ( descreption )this project help people ( descreption )t
-                                     his project help people ( descreption ) </li>
-                                <li class="list-group-item">50.000</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-center">
-                                <button type="signup" class="btn btn-primary">show project</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 ">
-
-                <div class="container">
-                    <div class="card border-dark" >
-                        <div class="card-header"><a href="#" ><img src="pexels-luis-quintero-1713953.jpg" class="card-img-top img-responsive "></a>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group" >
-                                <li class="list-group-item"><h4> Title </h4></li>
-                                <li class="list-group-item"> this project help people ( descreption )this project help people ( descreption )
-                                    this project help people ( descreption )this project help people ( descreption )this project help people 
-                                    ( descreption )this project help people ( descreption )this project help people ( descreption )this project
-                                     help people ( descreption )this project help people ( descreption )this project help people ( descreption )t
-                                     his project help people ( descreption ) </li>
-                                <li class="list-group-item">50.000</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-center">
-                                <button type="signup" class="btn btn-primary">show project</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 ">
-
-                <div class="container">
-                    <div class="card border-dark" >
-                        <div class="card-header"><a href="#" ><img src="pexels-luis-quintero-1713953.jpg" class="card-img-top img-responsive "></a>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group " >
-                                <li class="list-group-item"><h4> Title </h4></li>
-                                <li class="list-group-item"> this project help people ( descreption )this project help people ( descreption )
-                                    this project help people ( descreption )this project help people ( descreption )this project help people 
-                                    ( descreption )this project help people ( descreption )this project help people ( descreption )this project
-                                     help people ( descreption )this project help people ( descreption )this project help people ( descreption )t
-                                     his project help people ( descreption ) </li>
-                                <li class="list-group-item">50.000</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-center">
-                                <button type="signup" class="btn btn-primary">show project</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+  <body> 
+    <div class="container pl-3 col-md-12 col-lg-12 col-xl-12 col-sm-12">
+      <div class="row ml-3">
+        <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
+          <div  class="pt-5 row justify-content-center ">
+            <!-- <span class="w3-margin-right">Filter:</span>  -->
+            <button class="btn btn-dark">ALL</button>
+            <button class="btn btn-ligth">
+              <i class="fa fa-ambulance w3-margin-right"></i>Medical
+            </button>
+            <button class="btn btn-ligth ">
+              <i class="fas fa-clinic-medical w3-margin-right"></i>Mamorical
+            </button>
+            <button class="btn btn-ligth">
+              <i class="fas fa-hospital-user w3-margin-right"></i>Emergency
+            </button>
+            <button class="btn btn-ligth">
+              <i class="fas fa-money-bill-alt w3-margin-right"></i>Nonprofit
+            </button>
+            <button class="btn btn-ligth">
+              <i class="fas fa-book-reader w3-margin-right"></i>Education
+            </button>
+          </div>
         </div>
-
-        <div style="height: 30px;" ></div>
-        <div class="row">
-
-
-
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 ">
-
-                <div class="container">
-                    <div class="card border-dark" >
-                        <div class="card-header"><a href="#" ><img src="pexels-luis-quintero-1713953.jpg" class="card-img-top img-responsive "></a>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item"><h4> Title </h4></li>
-                                <li class="list-group-item"> this project help people ( descreption )this project help people ( descreption )
-                                    this project help people ( descreption )this project help people ( descreption )this project help people 
-                                    ( descreption )this project help people ( descreption )this project help people ( descreption )this project
-                                     help people ( descreption )this project help people ( descreption )this project help people ( descreption )t
-                                     his project help people ( descreption ) </li>
-                                <li class="list-group-item">50.000</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-center">
-                                <button type="signup" class="btn btn-primary">show project</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      </div>
+    </div>
+    <!-- search bar -->
+    <div class="container">
+      <br />
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+          <form class="card card-sm">
+            <div class="card-body row no-gutters align-items-center">
+              <!--end of col-->
+              <div class="col">
+                <input
+                  class="form-control form-control-lg form-control-borderless"
+                  type="search"
+                  placeholder="Search topics or keywords"
+                />
+              </div>
+              <!--end of col-->
+              <div class="col-auto pl-2">
+                <button class="btn btn-lg btn-success" type="submit">
+                  Search
+                </button>
+              </div>
+              <!--end of col-->
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 ">
-
-                <div class="container">
-                    <div class="card border-dark" >
-                        <div class="card-header"><a href="#" ><img src="pexels-luis-quintero-1713953.jpg" class="card-img-top img-responsive "></a>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group" >
-                                <li class="list-group-item"><h4> Title </h4></li>
-                                <li class="list-group-item"> this project help people ( descreption )this project help people ( descreption )
-                                    this project help people ( descreption )this project help people ( descreption )this project help people 
-                                    ( descreption )this project help people ( descreption )this project help people ( descreption )this project
-                                     help people ( descreption )this project help people ( descreption )this project help people ( descreption )t
-                                     his project help people ( descreption ) </li>
-                                <li class="list-group-item">50.000</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-center">
-                                <button type="signup" class="btn btn-primary">show project</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 ">
-
-                <div class="container">
-                    <div class="card border-dark" >
-                        <div class="card-header"><a href="#" ><img src="pexels-luis-quintero-1713953.jpg" class="card-img-top img-responsive "></a>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group " >
-                                <li class="list-group-item"><h4> Title </h4></li>
-                                <li class="list-group-item"> this project help people ( descreption )this project help people ( descreption )
-                                    this project help people ( descreption )this project help people ( descreption )this project help people 
-                                    ( descreption )this project help people ( descreption )this project help people ( descreption )this project
-                                     help people ( descreption )this project help people ( descreption )this project help people ( descreption )t
-                                     his project help people ( descreption ) </li>
-                                <li class="list-group-item">50.000</li>
-                            </ul>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-center">
-                                <button type="signup" class="btn btn-primary">show project</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+          </form>
         </div>
-        
+        <!--end of col-->
+      </div>
     </div>
 
+    <br />
+    <br />
+    <br />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div class="container">
+            <div class="card border-dark">
+              <div class="card-header">
+                <a href="#"
+                  ><img
+                    src="pexels-luis-quintero-1713953.jpg"
+                    class="card-img-top img-responsive"
+                /></a>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item"><h4>Title</h4></li>
+                  <li class="list-group-item">
+                    this project help people ( descreption )this project help
+                    people ( descreption ) this project help people (
+                    descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )t his
+                    project help people ( descreption )
+                  </li>
+                  <li class="list-group-item">50.000</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <button type="signup" class="btn btn-primary">
+                    show project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div class="container">
+            <div class="card border-dark">
+              <div class="card-header">
+                <a href="#"
+                  ><img
+                    src="pexels-luis-quintero-1713953.jpg"
+                    class="card-img-top img-responsive"
+                /></a>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item"><h4>Title</h4></li>
+                  <li class="list-group-item">
+                    this project help people ( descreption )this project help
+                    people ( descreption ) this project help people (
+                    descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )t his
+                    project help people ( descreption )
+                  </li>
+                  <li class="list-group-item">50.000</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <button type="signup" class="btn btn-primary">
+                    show project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div class="container">
+            <div class="card border-dark">
+              <div class="card-header">
+                <a href="#"
+                  ><img
+                    src="pexels-luis-quintero-1713953.jpg"
+                    class="card-img-top img-responsive"
+                /></a>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item"><h4>Title</h4></li>
+                  <li class="list-group-item">
+                    this project help people ( descreption )this project help
+                    people ( descreption ) this project help people (
+                    descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )t his
+                    project help people ( descreption )
+                  </li>
+                  <li class="list-group-item">50.000</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <button type="signup" class="btn btn-primary">
+                    show project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
-
-
-
-
-
-</body>
-
+      <div style="height: 30px"></div>
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div class="container">
+            <div class="card border-dark">
+              <div class="card-header">
+                <a href="#"
+                  ><img
+                    src="pexels-luis-quintero-1713953.jpg"
+                    class="card-img-top img-responsive"
+                /></a>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item"><h4>Title</h4></li>
+                  <li class="list-group-item">
+                    this project help people ( descreption )this project help
+                    people ( descreption ) this project help people (
+                    descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )t his
+                    project help people ( descreption )
+                  </li>
+                  <li class="list-group-item">50.000</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <button type="signup" class="btn btn-primary">
+                    show project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div class="container">
+            <div class="card border-dark">
+              <div class="card-header">
+                <a href="#"
+                  ><img
+                    src="pexels-luis-quintero-1713953.jpg"
+                    class="card-img-top img-responsive"
+                /></a>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item"><h4>Title</h4></li>
+                  <li class="list-group-item">
+                    this project help people ( descreption )this project help
+                    people ( descreption ) this project help people (
+                    descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )t his
+                    project help people ( descreption )
+                  </li>
+                  <li class="list-group-item">50.000</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <button type="signup" class="btn btn-primary">
+                    show project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div class="container">
+            <div class="card border-dark">
+              <div class="card-header">
+                <a href="#"
+                  ><img
+                    src="pexels-luis-quintero-1713953.jpg"
+                    class="card-img-top img-responsive"
+                /></a>
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item"><h4>Title</h4></li>
+                  <li class="list-group-item">
+                    this project help people ( descreption )this project help
+                    people ( descreption ) this project help people (
+                    descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )this
+                    project help people ( descreption )this project help people
+                    ( descreption )this project help people ( descreption )t his
+                    project help people ( descreption )
+                  </li>
+                  <li class="list-group-item">50.000</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <div class="text-center">
+                  <button type="signup" class="btn btn-primary">
+                    show project
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
