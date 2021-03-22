@@ -23,6 +23,8 @@ urlpatterns = [
     path('profile/', include('user_profile.urls')),
     path('category/', include('category.urls')),
     path('project/', include('project.urls')),
+    path('comment/', include('comment.urls')),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
