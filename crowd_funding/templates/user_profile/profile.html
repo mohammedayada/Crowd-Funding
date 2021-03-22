@@ -1,0 +1,19 @@
+{% extends '../base.html' %}
+{%block title%}Profile{% endblock title%}
+{% block contain %}
+{% if msg %}
+<h4>{{msg}}</h4>
+{% endif %}
+<div class="row">
+    first name: {{profile.user.first_name}}<br>
+    last name: {{profile.user.last_name}}<br>
+    username: {{profile.user.username}}<br>
+    phone: {{profile.phone}}<br>
+    birth date: {{profile.birth_date}}<br>
+    facebook link: {{profile.facebook_link}}<br>
+    country: {{profile.country}}<br>
+
+
+</div>
+
+{% endblock contain %}
