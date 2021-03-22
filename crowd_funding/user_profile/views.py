@@ -5,6 +5,7 @@ from .forms import Register_form
 from django.contrib.auth.models import User
 from .models import user_profile
 from django.db.models import Q
+from project.models import Project
 # Create your views here.
 
 
@@ -86,8 +87,10 @@ def user_register(request):
 #show profile
 def show_profile(request,pk):
     user = User.objects.filter(pk=pk).first()
+    projects = Project.objects.filter(user=user)
     profile = user_profile.objects.filter(user=user).first()
     if profile:
-        return render(request, 'user_profile/profile.html', {'profile': profile})
+        return render(request, 'user_profile/profile.html', {'profile': profile,
+                                                             'projects': projects})
     else:
         return render(request, 'home.html', {'msg': "User not found"})
