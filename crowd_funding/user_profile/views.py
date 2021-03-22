@@ -67,3 +67,11 @@ def user_register(request):
         return render(request, "user_profile/register.html", {'form': form})
 
 
+
+#show profile
+def show_profile(request,pk):
+    profile = user_profile.objects.filter(pk=pk).first()
+    if profile:
+        return render(request, 'user_profile/profile.html', {'profile': profile})
+    else:
+        return render(request, 'user_profile/profile.html')
