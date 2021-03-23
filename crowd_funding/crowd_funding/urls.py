@@ -24,6 +24,7 @@ urlpatterns = [
     path('category/', include('category.urls')),
     path('project/', include('project.urls')),
     path('comment/', include('comment.urls')),
+    path('donation/', include('donation.urls')),
 
 ]
 if settings.DEBUG:

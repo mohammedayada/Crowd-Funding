@@ -6,7 +6,7 @@ from tag.models import Tag, proiect_tag
 from .models import Project, Project_imgs
 from comment.models import Comment
 from user_profile.models import user_profile
-
+from donation.models import Donation
 
 # Create your views here.
 
@@ -65,11 +65,18 @@ def show_project(request, pk):
         project_tags = proiect_tag.objects.filter(project=project)
         imgs = Project_imgs.objects.filter(project=project)
         comment = Comment.objects.filter(project=project)
+        donatoins = Donation.objects.filter(project=project)
+        calculate_reached_donation = 0
+        for donation in donatoins:
+            calculate_reached_donation += donation.value
+        project.current_donation = calculate_reached_donation
+        project.save()
         if project:
             return render(request, 'project/show_project.html', {'project': project,
                                                                  'tags': project_tags,
                                                                  'comments': comment,
                                                                  'imgs': imgs,
+                                                                 'donations': donatoins,
                                                                  })
         else:
             return render(request, 'home.html', {'msg': "Project not found"})
@@ -82,6 +89,16 @@ def show_project(request, pk):
 def report_project(request, pk):
     try:
         project = Project.objects.filter(pk=pk).first()
+        #calculate current donations
+        if project:
+            donatoins = Donation.objects.filter(project=project)
+            calculate_reached_donation = 0
+            for donation in donatoins:
+                calculate_reached_donation += donation.value
+            project.current_donation = calculate_reached_donation
+            project.save()
+
+
         # user owner of the project and target less than 25%
         if (project.user == request.user and
                 project.current_donation <= (project.target * .25)):

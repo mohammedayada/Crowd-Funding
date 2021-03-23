@@ -263,9 +263,11 @@
                                     <!-- buttons for donate and reports  -->
                                     <div class="row my-3">
                                         <div class="col py-2">
+                                            {% if  request.user.is_authenticated%}
                                             <button class="btn btn-success" data-toggle="modal" data-target="#donateModel">
                                                 Donate
                                             </button>
+                                            {% endif %}
                                         </div>
                                         <div class="col-sm-1">
                                         </div>
@@ -278,6 +280,7 @@
 
 
                                     <!-- Modal confirm the report -->
+                                    {% if request.user.is_authenticated%}
                                     <div class="modal fade" id="reportModel" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="reportModelHead" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
@@ -298,6 +301,7 @@
                                         </div>
                                     </div>
 
+
                                     <!-- Modal donate the report -->
                                     <div class="modal fade" id="donateModel" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="donateModelHead" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
@@ -310,7 +314,8 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="container-fluid">
-                                                    <form action="#" method="POST">
+                                                    <form action="{% url 'donation:add_donation' project.pk%}" method="POST">
+                                                        {% csrf_token %}
                                                         <div class="form-group">
                                                             <label for="inputDonate" class="h6">Donation value</label>
                                                             <input type="number" class="form-control" id="inputDonate" name="donation"  placeholder="Enter the amount you want to donate" >
@@ -325,7 +330,7 @@
                                         </div>
                                         </div>
                                     </div>
-
+                                    {% endif%}
                                     <div class="row card " style="max-height: 600px ; ">
                                        <div class="col">
                                            <div class="row">
@@ -384,24 +389,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        {% for donation in donations %}
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
+                                                <th scope="row">{{forloop.counter}}</th>
+                                                <td>{{donation.value}}</td>
+                                                <td><a href="{% url 'user_profile:show_profile' donation.user.pk %}">{{donation.user.username}}</td>
 
                                             </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
 
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
+                                        {% endfor%}
 
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

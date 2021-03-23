@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .models import user_profile
 from django.db.models import Q
 from project.models import Project
+from donation.models import Donation
 # Create your views here.
 
 
@@ -86,15 +87,18 @@ def user_register(request):
 
 #show profile
 def show_profile(request,pk):
-    user = User.objects.filter(pk=pk).first()
-    projects = Project.objects.filter(user=user)
-    profile = user_profile.objects.filter(user=user).first()
-    if profile:
-        return render(request, 'user_profile/profile.html', {'profile': profile,
-                                                             'projects': projects})
-    else:
+    try:
+        user = User.objects.filter(pk=pk).first()
+        projects = Project.objects.filter(user=user)
+        profile = user_profile.objects.filter(user=user).first()
+        donations = Donation.objects.filter(user=user)
+        if profile:
+            return render(request, 'user_profile/profile.html', {'profile': profile,
+                                                                 'projects': projects,
+                                                                 'donations': donations})
+        else:
+            return render(request, 'home.html', {'msg': "User not found"})
+    except:
         return render(request, 'home.html', {'msg': "User not found"})
-
-
 
 #edit profile
