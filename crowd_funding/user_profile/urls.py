@@ -4,11 +4,13 @@ from .views import (
     user_logout,
     user_register,
     show_profile,
+    edit_profile
 )
 app_name = "user_profile"
 urlpatterns = [
     path('login/', user_login, name='user_login'),
     path('logout/', user_logout, name='user_logout'),
     path('register/', user_register),
-    path('user/<int:pk>/', show_profile, name='show_profile')
+    path('user/<int:pk>/', show_profile, name='show_profile'),
+    path('edit/<int:pk>/', edit_profile, name='edit_profile'),
 ]
