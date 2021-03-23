@@ -17,6 +17,7 @@ class Project(models.Model):
     start_date = models.DateField(auto_now=False, auto_now_add=False,)
     end_date = models.DateField(auto_now=False, auto_now_add=False,)
     avg_rate = models.FloatField(default=0)
+    report_count = models.IntegerField(default=0)
 
 
     def __str__(self):
@@ -26,6 +27,6 @@ class Project(models.Model):
 class Project_imgs(models.Model):
     project = models.ForeignKey(Project,
                                  on_delete=models.CASCADE)
-    img = models.ImageField()
+    img = models.ImageField(upload_to='projects_pictures/')
     def __str__(self):
         return "Images: "+self.img.url+" project: "+self.project.title

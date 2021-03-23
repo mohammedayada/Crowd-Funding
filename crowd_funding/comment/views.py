@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
 from project.models import Project
 from .models import Comment
 from django.db.models import Q
 # Create your views here.
-def add_comment(request,pk):
+@login_required
+def add_comment(request, pk):
     #pk of the project not comment
     if request.POST:
         project = Project.objects.filter(pk=pk).first()
@@ -18,7 +21,7 @@ def add_comment(request,pk):
         return render(request, 'home.html', {'msg': "Cannot create comment "})
 
 
-
+@login_required
 def report_comment(request, pk, projectPk):
     #pk of comment
     project = Project.objects.filter(Q(user=request.user) & Q(pk=projectPk)).first()
