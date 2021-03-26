@@ -8,5 +8,35 @@
    {% if msg %}
    <h1>{{msg}}</h1>
    {% endif %}
+
+
+   {% if categories %}
+       <h1>Categories</h1>
+    {% endif%}
+    {% for category in categories %}
+      {{category}}<br>
+    {% endfor%}
+
+
+    {% if latest5_projects %}
+       <h1>latest Project</h1>
+    {% endif%}
+    {% for project in latest5_projects %}
+      {{project}}<br>
+    {% endfor%}
+
+
+    {% if featured_first_project %}
+       <h1>featured first Project</h1>
+       {{featured_first_project}}
+    {% endif%}
+
+
+    {% if featured4_projects %}
+       <h1>featured Project</h1>
+    {% endif%}
+    {% for project in featured4_projects %}
+      {{project}}<br>
+    {% endfor%}
 </body>
 </html>

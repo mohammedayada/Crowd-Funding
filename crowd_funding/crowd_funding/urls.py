@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +26,8 @@ urlpatterns = [
     path('project/', include('project.urls')),
     path('comment/', include('comment.urls')),
     path('donation/', include('donation.urls')),
+    path('rate/', include('rate.urls')),
+    path('', home),
 
 ]
 if settings.DEBUG:

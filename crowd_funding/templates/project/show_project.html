@@ -233,11 +233,14 @@
                                     </dl>
 
                                 </div>
-                                <div class="col-ms-1 col-md-1 col-lg-1"></div>
+                                <div class="col-ms-1 col-md-1 col-lg-1">
+                                </div>
                                 <div class="col-ms-3 col-md-4 col-lg-4">
-
-                                    <form class="row py-4">
+                                    {% if  request.user.is_authenticated%}
+                                    <form class="row py-4" method="POST" action="{%url 'rate:add_rate' project.pk %}">
+                                        {% csrf_token %}
                                         <div class="col-ms-2 col-md-2 col-lg-2">
+
 
                                         </div>
                                         <div class="col-ms-6 col-md-6 col-lg-6">
@@ -260,6 +263,9 @@
                                         </div>
 
                                     </form>
+                                    Average rate: {{project.avg_rate}}<br>
+                                    Sum of users rated this project: {{project.count_rated_user}}
+                                    {%endif%}
                                     <!-- buttons for donate and reports  -->
                                     <div class="row my-3">
                                         <div class="col py-2">
@@ -271,9 +277,11 @@
                                         </div>
                                         <div class="col-sm-1">
                                         </div>
+                                        {% if  request.user.is_authenticated%}
                                         <div class="col py-2">
                                             <button href="#" class="btn btn-info" data-toggle="modal" data-target="#reportModel"><small>Report Project</small></a>
                                         </div>
+                                        {% endif %}
 
                                     </div>
                                     <!-- heddin modle  -->
