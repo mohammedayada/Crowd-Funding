@@ -7,6 +7,7 @@ from .models import Project, Project_imgs
 from comment.models import Comment
 from user_profile.models import user_profile
 from donation.models import Donation
+from rate.models import Rate
 
 # Create your views here.
 
