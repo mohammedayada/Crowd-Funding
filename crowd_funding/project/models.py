@@ -20,16 +20,28 @@ class Project(models.Model):
     end_date = models.DateField(auto_now=False, auto_now_add=False, )
     sum_rate = models.FloatField(default=0)
     count_rated_user = models.IntegerField(default=0)
+    avg_rate = models.FloatField(default=0)
     report_count = models.IntegerField(default=0)
     featured = models.BooleanField(default=False)
 
-    def avg_rate(self):
+    def count_avg_rate(self):
         if self.count_rated_user == 0:
             return "No user rated this project"
-        return str(self.sum_rate / self.count_rated_user) + " / 5"
+        self.avg_rate = self.sum_rate / self.count_rated_user
+        return self.sum_rate / self.count_rated_user
 
     def __str__(self):
         return "Project title: " + self.title + " |user name: " + self.user.username + " " + self.title + " |category: " + self.category.name
+
+    def first_img(self):
+        project = Project.objects.filter(pk=self.pk).first()
+        print(project)
+        img = Project_imgs.objects.filter(project=project).first()
+        print(img)
+        return img
+    def all_imgs(self):
+        imgs = Project_imgs.objects.filter(project=self)
+        return imgs
 
 
 class Project_imgs(models.Model):
