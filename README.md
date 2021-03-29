@@ -7,7 +7,7 @@ over US$34 billion was raised worldwide by crowdfunding.
 #### 1- activate env 
 In Linux/Mac, go to the project folder (in which, there should be env folder created).
 ```bash
-. myenv/bin/activate
+source env/bin/activate
 ```
 In Windows, go to the project folder (in which, there should be env folder created).
 ```bash
