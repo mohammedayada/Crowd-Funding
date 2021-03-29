@@ -13,12 +13,12 @@ In Windows, go to the project folder (in which, there should be env folder creat
 ```bash
 env\Scripts\activate
 ```
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install
+#### 2-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install
 ```bash
 Pip install pillow
 Pip install Django-allauth
 ```
-#### 2-runserver 
+#### 3-runserver 
 ```bash
 python manage.py runserver
 ```
