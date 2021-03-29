@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Donation, Project
 # Create your views here.
@@ -10,6 +10,6 @@ def add_donation(request, pk):
     if request.POST:
         project = Project.objects.filter(pk=pk).first()
         donation = Donation.objects.create(project=project, user=request.user, value=request.POST['donation'])
-        return render(request, 'home.html', {'msg': "Donation added successfully"})
+        return redirect('project:show_project', pk=pk)
 
-    return render(request, 'home.html', {'msg': "can't added donation"})
+    return redirect('project:show_project', pk=pk)

@@ -19,6 +19,7 @@ def add_rate(request, pk):
             project.sum_rate -= rate.rate
             project.sum_rate += int(request.POST['rating'])
             rate.rate = int(request.POST['rating'])
+            project.avg_rate = project.sum_rate / project.count_rated_user
             project.save()
             rate.save()
         else:
@@ -26,6 +27,8 @@ def add_rate(request, pk):
             rate = Rate.objects.create(rate=request.POST['rating'], user=request.user, project=project)
             project.sum_rate += int(request.POST['rating'])
             project.count_rated_user += 1
+            project.avg_rate = project.sum_rate / project.count_rated_user
+
             project.save()
 
     return redirect('project:show_project', pk=pk)

@@ -1,16 +1,17 @@
 {% extends '../base.html' %}
 {%block title%}Add Category{% endblock title%}
 {% block contain %}
-{% if msg %}
-<h4>{{msg}}</h4>
-{% endif %}
+
 <div class="container">
-<div class="row">
-<div class="col-lg-3">
+<h1>Categories</h1>
+    <div class="row">
+{% if request.user.is_superuser%}
+    <div class="col-lg-3">
 
     </div>
+
     <div class="col-lg-6">
-        <h1>Categories</h1>
+
         <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -32,10 +33,20 @@
         <a href="{% url 'category:add_category' %}" class="btn btn-primary btn-block">Add New Category</a>
 
     </div>
+
     <div class="col-lg-3">
 
     </div>
+{%else%}
 
+    {% for category in categories%}
+    <div class="col-lg-3">
+
+        <a href="/search/?search={{category.pk}}" class="btn btn-light m-4">{{category.name}}</a>
+    </div>
+    {% endfor%}
+
+    {%endif%}
 
 </div>
 </div>

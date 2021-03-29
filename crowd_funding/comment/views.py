@@ -16,9 +16,9 @@ def add_comment(request, pk):
                                    user=request.user)
             return redirect('project:show_project', pk=pk)
         else:
-            return render(request, 'home.html', {'msg': "Cannot create comment "})
+            return redirect('project:show_project', pk=pk)
     else:
-        return render(request, 'home.html', {'msg': "Cannot create comment "})
+        return redirect('project:show_project', pk=pk)
 
 
 @login_required
@@ -30,4 +30,4 @@ def report_comment(request, pk, projectPk):
         comment.delete()
         return redirect('project:show_project', pk=projectPk)
 
-    return render(request, 'home.html', {'msg': "Cannot report comment "})
+    return redirect('project:show_project', pk=projectPk)

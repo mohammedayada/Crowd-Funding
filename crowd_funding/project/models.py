@@ -35,12 +35,11 @@ class Project(models.Model):
 
     def first_img(self):
         project = Project.objects.filter(pk=self.pk).first()
-        print(project)
         img = Project_imgs.objects.filter(project=project).first()
-        print(img)
         return img
     def all_imgs(self):
-        imgs = Project_imgs.objects.filter(project=self)
+        project = Project.objects.filter(pk=self.pk).first()
+        imgs = Project_imgs.objects.filter(project=project)
         return imgs
 
 

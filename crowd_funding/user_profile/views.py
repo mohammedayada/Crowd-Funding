@@ -21,30 +21,21 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            context = {
-                'msg': "login successfully"
-            }
-        else:
-            context = {
-                'msg': "login failed"
-            }
-        return render(request, 'home.html', context)
-    # when request GET
-    else:
-        return render(request, 'home.html', {'msg': "you are already login "})
+
+    return redirect('home')
 
 
 # logout function
 @login_required
 def user_logout(request):
     logout(request)
-    return render(request, "home.html", {'msg': "logout successfully"})
+    return redirect('home')
 
 
 # register function
 def user_register(request):
     if request.user.is_authenticated:
-        return render(request, "home.html", {'msg': "you can't register again when login"})
+        return redirect('home')
 
     if request.POST:
         data = request.POST
@@ -72,7 +63,7 @@ def user_register(request):
                                                   )
             if data['birth_date'] is not None:
                 profile.birth_date = data['birth_date']
-            return render(request, "home.html", {'msg': "user register successfully"})
+            return redirect('home')
         else:
             # redirect to the same page
             return render(request, "user_profile/register.html", {'form': form})
@@ -93,9 +84,10 @@ def show_profile(request, pk):
                                                                  'projects': projects,
                                                                  'donations': donations})
         else:
-            return render(request, 'home.html', {'msg': "User not found"})
+            return redirect('home')
+
     except:
-        return render(request, 'home.html', {'msg': "User not found"})
+        return redirect('home')
 
 
 # edit profile
@@ -127,7 +119,9 @@ def edit_profile(request, pk):
             return redirect('user_profile:show_profile', pk=profile.user.pk)
         else:
 
-            return render(request, 'home.html', 'Profile not found')
+            return redirect('home')
+
     except:
 
-        return render(request, 'home.html', 'Profile not found')
+        return redirect('home')
+

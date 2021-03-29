@@ -94,14 +94,14 @@
                     
                   </div>
                   <div class="col-sm-2 text-right">
-                    <a href="" class="text-secondary" >View more <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a href="{% url 'category:show_categories'%}" class="text-secondary" >View more <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                   </div>
               </div>
               
               <div class="row my-5 px-5" data-aos="fade-up" >
                   {% for category in categories%}
                   <div class="col">
-                        <a href="" class="card bg-white rounded-lg shadow-sm text-center text-info" style="max-width: 18rem;">
+                        <a href="/search/?search={{category.pk}}" class="card bg-white rounded-lg shadow-sm text-center text-info" style="max-width: 18rem;">
                             <div class="card-body  ">
                               <div class="mb-2"><i class="fa fa-user-md fa-4x" aria-hidden="true"></i></div>
                               <h5 class="card-title">{{category.name}}</h5>
@@ -121,7 +121,7 @@
                 </div>
                 
                 <div class="col-sm-2 text-right">
-                    <a href="" class="text-secondary" >View more <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a href="/search/?featured=1" class="text-secondary" >View more <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
 
               </div>
@@ -165,7 +165,7 @@
                 </div>
 
                 <div class="col-sm-2 text-right">
-                    <a href="" class="text-secondary" >View more <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a href="/search/?last=1" class="text-secondary" >View more <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
               </div>
               
@@ -175,9 +175,10 @@
                         <div class="card border-0 shadow-sm" data-aos="fade-left" data-aos-delay='100' style="min-height:300px">
                             <img src="{{project.first_img.img.url}}" class="card-img-top" width="150px" height="150px" alt="...">
                             <div class="card-body">
+                                <a href="{% url 'project:show_project' project.pk%}">
                               <h5 class="card-title">{{project.title}}</h5>
                               <p class="card-text " >{{project.details}}</p>
-                              
+                              </a>
                             </div>
                         </div>
                     </div>
