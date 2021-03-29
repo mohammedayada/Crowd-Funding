@@ -23,3 +23,9 @@ Pip install Django-allauth
 python manage.py runserver
 ```
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
+## Support
+you can contact us using social media icon or email or phone number that found in footer
+
+## License
+[Crowd-Funding](https://github.com/mohammedayada/Crowd-Funding.git)
