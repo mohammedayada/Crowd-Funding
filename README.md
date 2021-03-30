@@ -58,6 +58,7 @@ projects
   - He can view his profile
   - He can view his projects
   - He can view his donations
+  - He can  verify his email
   - He can edit all his data except for the email
   - He can have extra optional info other than the info he added
   while registration (Birthdate, facebook profile, country)
