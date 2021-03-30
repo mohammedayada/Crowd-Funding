@@ -184,8 +184,8 @@
       {% if request.user.is_authenticated%}
       <div class="navbar-nav ml-auto">
 			<div class="nav-item dropdown">
-			  <a href="#"
-			   data-toggle="dropdown" class="nav-link dropdown-toggle user-action avatar"> {{ user.get_username }}  <b class="caret"></b></a>
+			  <div
+			   data-toggle="dropdown" class="nav-link dropdown-toggle user-action avatar"> {{ user.get_username }}  <b class="caret"></b></div>
 			  <div class="dropdown-menu">
 				<a href="{% url 'user_profile:show_profile' request.user.id%}" class="dropdown-item"><i class="bi bi-person-check-fill"></i> Profile</a></a>
 				<div class="dropdown-divider"></div>

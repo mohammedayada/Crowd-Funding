@@ -4,7 +4,8 @@ from .views import (
     user_logout,
     user_register,
     show_profile,
-    edit_profile
+    edit_profile,
+    activate,
 )
 app_name = "user_profile"
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path('register/', user_register, name='user_register'),
     path('user/<int:pk>/', show_profile, name='show_profile'),
     path('edit/<int:pk>/', edit_profile, name='edit_profile'),
+    path('activate/<slug:uidb64>/<slug:token>/', activate, name='activate')
 ]

@@ -25,7 +25,7 @@ SECRET_KEY = 'w3wtoe*6(%hdc0yk*64h^0fy+#u@m6s)$@$4i91gjm83h_#nce'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'donation',
     'allauth',
     'django.contrib.sites',
+
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'crowd_funding.urls'
 import os
+BASE_URL = '127.0.0.1:8000'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -73,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_base_url.context_processors.base_url',
             ],
         },
     },
@@ -145,3 +148,10 @@ AUTHENTICATION_BACKENDS = (
 )
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+ACCOUNT_ACTIVATION_DAYS = 1
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mohammedayada1998@gmail.com'
+EMAIL_HOST_PASSWORD = '01117759779ayada'
+EMAIL_PORT = 587
